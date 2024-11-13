@@ -6,14 +6,14 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.lang.model.element.NestingKind;
-
 @SpringBootApplication
 @RestController
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+        System.out.println(context.getClass().getName());
+        System.out.println(context.getBeanDefinitionCount());
     }
 
     @GetMapping("/")
