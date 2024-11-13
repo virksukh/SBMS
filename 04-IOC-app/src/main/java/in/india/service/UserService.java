@@ -31,7 +31,7 @@ public class UserService {
         this.pwdService = pwdService;
     }*/
 
-    public void save(){
+    public void userRegistration() {
         emailService.sendEmail();
         pwdService.encryptPwd();
         userDao.connectToDatabase();
