@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class UserService {
 
     private UserDao userDao;
-    
+
     public UserService(UserDao mysql) {
         this.userDao = mysql;
     }
