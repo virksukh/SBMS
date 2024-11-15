@@ -17,6 +17,5 @@ public class Application {
         employee.setEmpGender("Male");
         employee.setEmpCountry("Canada");
 //        employee.setEmpSalary();
-        bean.getEmpsQBE(employee);
     }
 }
