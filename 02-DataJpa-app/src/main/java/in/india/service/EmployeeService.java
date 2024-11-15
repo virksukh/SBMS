@@ -1,11 +1,16 @@
 package in.india.service;
 import in.india.entity.Employee;
 import in.india.repo.EmployeeRepository;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class EmployeeService {
+
+    private static final int pageSize = 3;
     EmployeeRepository employeeRepository;
 
     public EmployeeService(EmployeeRepository employeeRepository) {
@@ -13,36 +18,31 @@ public class EmployeeService {
         System.out.println("Employee Repository constructor");
     }
 
-   public void saveEmployee() {
+    public void saveEmployee() {
         Employee employee = new Employee();
-        employee.setEmpId(4);
-        employee.setEmpName("Robin");
-        employee.setEmpGender("Male");
-        employee.setEmpCountry("India");
-        employee.setEmpSalary(42343.0);
+        employee.setEmpId(7);
+        employee.setEmpName("Amanda");
+        employee.setEmpCountry("UK");
+        employee.setEmpGender("Female");
+        employee.setEmpSalary(4536543.3546);
         employeeRepository.save(employee);
-        System.out.println("************ Record Saved **************");
-   }
+    }
 
-   public void getAllEmployees() {
-        employeeRepository.findAll().forEach(System.out::println);
-   }
+    public void getEmps(int pageNum) {
+        Pageable pageable = PageRequest.of(pageNum -1, pageSize);
+        employeeRepository.findAll(pageable).forEach(System.out::println);
+    }
 
-   public void getEmployeeByCountry(String country) {
-       List<Employee> list = employeeRepository.findByEmpCountry(country);
-       list.forEach(System.out::println);
-   }
-   public void getEmpBySalaryGreaterThan(double salary) {
-        List<Employee> list = employeeRepository.findByEmpSalaryGreaterThan(salary);
-        list.forEach(System.out::println);
-   }
-   public void getEmpByGender(String gender) {
-        List<Employee> list = employeeRepository.findByEmpGender(gender);
-        list.forEach(System.out::println);
-   }
-   public void getEmpByGenderAndSalaryGreaterThan(String gender, double salary) {
-        List<Employee> list = employeeRepository.findByEmpGenderAndEmpSalaryGreaterThan(gender, salary);
-        list.forEach(System.out::println);
-   }
+    public void getEmpsQBE(Employee employee) {
+        Example<Employee> employeeExample = Example.of(employee);
+        List<Employee> employees = employeeRepository.findAll(employeeExample);
+        employees.forEach(System.out::println);
+    }
+
+    /*public void getEmpsQBE() {
+        employeeRepository.findMaleAndCanadaResidentSalaryGreaterThanEqual().forEach(System.out::println);
+    }*/
 }
+
+
 
