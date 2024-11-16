@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script>
+    function deleteConfirmation(){
+      return confirm("Are you sure you want to delete this record?");
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <h1>View all studnets</h1>
+  <div style="color: green">
+    <p th:text="${msg}"></p>
+
+  </div>
+  <table class="table table-striped table-bordered" >
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${allStudents}">
+      <td th:text="${student.name}"></td>
+      <td th:text="${student.email}"></td>
+      <td th:text="${student.phone}"></td>
+      <td>
+        <a th:href="@{'/delete?id=' + ${student.id}}"
+           class="btn btn-danger" onclick="return deleteConfirmation()">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a href="/">Add new student</a>
+</div>
+
+
+
+
+<!--<div class="container">
+  <h1>view students</h1>
+
+  <table  class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+      <td th:text="${student.name}"></td>
+      <td th:text="${student.email}"></td>
+      <td th:text="${student.phone}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <a href="/">add new student</a>
+</div>-->
+
+
+</body>
+</html>
