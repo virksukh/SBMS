@@ -6,19 +6,17 @@ import jakarta.persistence.Id;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
-
 import java.time.LocalDate;
 
-@Data
 @Entity
+@Data
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
-    private Long phone;
+    private String phone;
     @CreationTimestamp
     private LocalDate createdDate;
     @UpdateTimestamp
