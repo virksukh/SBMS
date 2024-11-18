@@ -8,17 +8,18 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDate;
 
-@Data
 @Entity
+@Data
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
-    private Long phone;
+    private String phone;
     @CreationTimestamp
-    private LocalDate createdDate;
+    private LocalDate creationDate;
     @UpdateTimestamp
-    private LocalDate updatedDate;
+    private LocalDate updateDate;
 }
+

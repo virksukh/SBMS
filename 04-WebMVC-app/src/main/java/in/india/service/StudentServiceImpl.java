@@ -4,6 +4,39 @@ import in.india.repo.StudentRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+
+@Service
+public class StudentServiceImpl implements StudentService {
+
+    private StudentRepository studentRepository;
+    private EmailService emailService;
+
+    public StudentServiceImpl(StudentRepository studentRepository, EmailService emailService) {
+        this.studentRepository = studentRepository;
+        this.emailService = emailService;
+    }
+
+    @Override
+    public boolean addStudent(Student student) {
+        Student savedStudent = studentRepository.save(student);
+        return savedStudent.getId() != null;
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    @Override
+    public void deleteStudent(Integer id) {
+        studentRepository.deleteById(id);
+    }
+}
+
+
+
+
+/*
 @Service
 public class StudentServiceImpl  implements StudentService {
     private StudentRepository studentRepository;
@@ -32,4 +65,5 @@ public class StudentServiceImpl  implements StudentService {
     public void deleteStudent(Integer id) {
         studentRepository.deleteById(id);
     }
-}
+}*/
+

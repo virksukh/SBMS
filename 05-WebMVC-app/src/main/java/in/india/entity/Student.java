@@ -16,9 +16,9 @@ public class Student {
     private Integer id;
     private String name;
     private String email;
-    private Long phone;
+    private String phone;
     @CreationTimestamp
-    private LocalDate createdDate;
+    private LocalDate creationDate;
     @UpdateTimestamp
-    private LocalDate updatedDate;
+    private LocalDate lastUpdateDate;
 }
