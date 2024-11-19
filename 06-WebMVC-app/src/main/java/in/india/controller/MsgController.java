@@ -14,15 +14,16 @@ public class MsgController {
    public ModelAndView getWelcomeMsg(){
        ModelAndView modelAndView = new ModelAndView();
        modelAndView.setViewName("index");
-       modelAndView.addObject("msg", "welcom to Spring Boot,ouo");
+       modelAndView.addObject("msg", "welcome");
        return modelAndView;
    }
 
-   @GetMapping("/greet")
+   @GetMapping("/greet" +
+           "")
    public ModelAndView getGreetMsg(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
-        modelAndView.addObject("msg", "Hello Spring Boot");
+        modelAndView.addObject("msg", "greetings");
         return modelAndView;
    }
 }
