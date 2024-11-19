@@ -9,29 +9,23 @@
 <body>
 <div class="container">
     <h1>Student Form</h1>
-    <div style="color: green">
-        <p th:text="${message}"></p>
-    </div>
+    <p th:text="${message}"></p>
     <form method="POST" action="/savestudent">
-
         <table>
             <tr>
-                <td>Name:</td>
-                <td><input type="text" name="name" required></td>
+                <td>name:</td>
+                <td><input type="text" name="name" required/></td>
             </tr>
             <tr>
-                <td>Email:</td>
-                <td><input type="email" name="email" required></td>
+                <td>email:</td>
+                <td><input type="email" name="email" required/></td>
             </tr>
             <tr>
-                <td>Phone:</td>
-                <td><input type="phone" name="phone" required></td>
+                <td>phone:</td>
+                <td><input type="number" name="phone" required/></td>
             </tr>
-
-            <tr>
-                <td></td>
-                <td><input type="submit" name="Save" class="btn btn-primary"></td>
-            </tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-primary"></td>
         </table>
     </form>
     <a href="/getdata">View all students</a>

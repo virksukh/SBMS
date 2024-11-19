@@ -6,11 +6,10 @@ import jakarta.persistence.Id;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.time.LocalDateTime;
 
-@Entity
 @Data
+@Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +18,7 @@ public class Student {
     private String email;
     private Long phone;
     @CreationTimestamp
-    private LocalDateTime createdDate;
+    private LocalDateTime createdAt;
     @UpdateTimestamp
-    private LocalDateTime updatedDate;
+    private LocalDateTime updatedAt;
 }
