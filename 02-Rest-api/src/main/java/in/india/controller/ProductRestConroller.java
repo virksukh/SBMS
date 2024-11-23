@@ -41,4 +41,21 @@ public class ProductRestConroller {
         String msg = "book saved";
         return new ResponseEntity<>(msg, HttpStatus.CREATED);
     }
+
+    @PutMapping(
+            value = "/book/{id}",
+            produces = "application/json",
+            consumes = "application/json"
+    )
+    public ResponseEntity<Book> updateBook(@PathVariable("id") Integer id,@RequestBody Book book) {
+        System.out.println(id);
+        System.out.println(book);
+        return new ResponseEntity<>(book, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<String> deleteBook(@PathVariable("id") Integer id) {
+        String msg = "book deleted";
+        return  new ResponseEntity<>(msg, HttpStatus.OK);
+    }
 }
