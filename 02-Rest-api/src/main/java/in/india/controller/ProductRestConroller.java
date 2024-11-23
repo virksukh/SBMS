@@ -1,10 +1,8 @@
 package in.india.controller;
+import in.india.Book;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductRestConroller {
@@ -35,5 +33,12 @@ public class ProductRestConroller {
             msg="no Samsung product found";
         }
         return new ResponseEntity<>(msg, HttpStatus.OK);
+    }
+
+    @PostMapping(value ="/book", consumes = "application/json", produces = "text/plain")
+    public ResponseEntity<String> addBook(@RequestBody Book book ){
+        System.out.println(book);
+        String msg = "book saved";
+        return new ResponseEntity<>(msg, HttpStatus.CREATED);
     }
 }
