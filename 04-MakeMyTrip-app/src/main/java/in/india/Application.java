@@ -7,13 +7,9 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class Application {
 
-    private static final String PROVIDER_URL = "https://api.restful-api.dev/objects";
+    private static final String PROVIDER_URL = "http://classes.ashokit.in/welcome";
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> forEntity = restTemplate.getForEntity(PROVIDER_URL, String.class);
-        System.out.println(forEntity.getBody());
-        System.out.println(forEntity.getStatusCode());
     }
 }
