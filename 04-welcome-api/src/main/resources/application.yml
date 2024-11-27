@@ -1,0 +1,22 @@
+spring:
+    application:
+        name: 04-welcome-api
+    boot:
+        admin:
+            client:
+                url: http://localhost:1111/
+server:
+    port: 8081
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+
+
+eureka:
+    client:
+        fetch-registry: true
+        register-with-eureka: true
+        service-url:
+            defaultZone: ${eureka_url:http://192.168.0.69:8761/eureka}
