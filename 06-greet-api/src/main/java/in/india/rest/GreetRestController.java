@@ -13,7 +13,7 @@ public class GreetRestController {
     @GetMapping("/greet")
     public String getGreetMsg(){
         String welcomeMsg = welcomeFeignClient.getWelcomeMsg();
-        String greetMsg = " this is awesome ";
+        String greetMsg = " greet api response ";
         return welcomeMsg + greetMsg;
 
     }
