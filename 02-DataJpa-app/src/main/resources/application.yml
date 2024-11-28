@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: 02-DataJpa-app
+    datasource:
+        password: Blessings@101
+        url: jdbc:mysql://localhost:3306/sbms45
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                format_sql: true
+        show-sql: true
