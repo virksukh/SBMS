@@ -1,6 +1,6 @@
 spring:
     application:
-        name: 02-DataJpa-app
+        name: 04_spring_sec_reg_login_app
     datasource:
         password: Blessings@101
         url: jdbc:mysql://localhost:3306/sbms45

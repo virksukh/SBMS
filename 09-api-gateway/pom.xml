@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ca.sukhdeep</groupId>
-    <artifactId>_07-api-gateway</artifactId>
+    <artifactId>_09-api-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>07-api-gateway</name>
-    <description>07-api-gateway</description>
+    <name>09-api-gateway</name>
+    <description>09-api-gateway</description>
     <url/>
     <licenses>
         <license/>
@@ -39,12 +39,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-resolver-dns-native-macos</artifactId>
-            <classifier>osx-aarch_64</classifier>
-            <scope>runtime</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -66,8 +61,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -86,4 +86,5 @@
             </snapshots>
         </repository>
     </repositories>
+
 </project>

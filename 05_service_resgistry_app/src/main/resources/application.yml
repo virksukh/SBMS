@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: 05_service_resgistry_app
+
+server:
+    port: 8761
+eureka:
+    client:
+        register-with-eureka: false
